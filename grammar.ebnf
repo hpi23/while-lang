@@ -1,0 +1,12 @@
+Program    = Statement , { ';' , Statement } , [ ';' ] ;
+Statement  = While | Assignment | If ;
+While      = 'WHILE' , var , '!=' , '0' , 'DO' , Program , 'END' ;
+Equality   = '[' , var , '=' , var , ']' ;
+Assignment = var , ':=' , ( var , [ ( '+' | '-' ) , CONST ] | Equality ) ;
+If         = 'IF' , var , '=' , [ ( '+' | '-' ) , CONST ] , 'THEN' , Program , 'END' ;
+
+var = 'x' , ( '0' | NON_ZERO , { DIGIT } ) ;
+
+CONST    = '0' | '1' ;
+NON_ZERO = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+DIGIT    = '0' | NON_ZERO ;
